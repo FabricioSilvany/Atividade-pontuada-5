@@ -12,7 +12,6 @@ class Familia:
     sobrenome: str
     numero_fiilhos: int
 
-#Solicitando dados
 familia = Familia(
     sobrenome = input("Digite o sobrenome da família: "),
     numero_fiilhos = int(input("Digite quantos filhos você tem: ")),
@@ -26,6 +25,9 @@ nome_do_arquivo = "pesquisa_prefeitura.txt"
 with open(nome_do_arquivo, "a") as arquivo_familias:
     for familia in lista_familia:
         arquivo_familias.write(f"{familia.numero_filhos, {familia.sobrenome}}")
+
+#Limpar lista das famílias
+lista_familia = []
 
 #Fechando conexão com o arquivo
 arquivo_familias.close()
