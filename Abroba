@@ -4,10 +4,10 @@ A prefeitura de uma cidade fez uma pesquisa entre seus habitantes,
 coletando dados sobre o salário e número de fihos das famílias da cidade.
 A prefeitura deseja saber:
 
-a - Total de famílioas que responderam a pesquisa;
+a - Total de famílias que responderam a pesquisa;
 b - média do salário da população;
 c - média do número de filhos;
-d - maior saláeio;
+d - maior salário;
 e - menor salário
 
 Crie um menu com as seguintes opções.
