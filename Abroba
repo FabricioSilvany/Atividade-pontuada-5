@@ -1,1 +1,21 @@
 Abroba
+
+A prefeitura de uma cidade fez uma pesquisa entre seus habitantes,
+coletando dados sobre o salário e número de fihos das famílias da cidade.
+A prefeitura deseja saber:
+
+a - Total de famílioas que responderam a pesquisa;
+b - média do salário da população;
+c - média do número de filhos;
+d - maior saláeio;
+e - menor salário
+
+Crie um menu com as seguintes opções.
+Código | Descrição
+1 || Adicionar família
+2 ||
+3 || Sair
+
+Ao adicionar uma família, deve-se limpar o terminal e apresentar o menu novamente.
+1. Salve os dados em um arquivo com nome: pesquisa_prefeitura.txt
+2. O programa deve ler o arquivo para exibir os dados salvos.
