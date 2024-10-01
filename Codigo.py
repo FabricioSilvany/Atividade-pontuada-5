@@ -2,7 +2,7 @@ import os
 os.system("cls || clear") 
 
 quantidade_familias = 0
-salarios = [].+
+salarios = []
 while True:
     opcao = input(print("""
     === PESQUISA DA PREFEITURA ===
@@ -18,7 +18,7 @@ while True:
     match (opcao):
         case 1:
             quantidade_familias += 1
-            
+            salarios.append(salario)
         case 2:
 
         case 3:
