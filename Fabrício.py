@@ -25,4 +25,7 @@ nome_do_arquivo = "pesquisa_prefeitura.txt"
 #Abrindo arquivo e certificando a escrita de dados
 with open(nome_do_arquivo, "a") as arquivo_familias:
     for familia in lista_familia:
-        arquivo_familias
+        arquivo_familias.write(f"{familia.numero_filhos, {familia.sobrenome}}")
+
+#Fechando conexão com o arquivo
+arquivo_familias.close()
