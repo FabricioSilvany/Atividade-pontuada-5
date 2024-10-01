@@ -14,6 +14,7 @@ quantidade_de_filhos = []
 class Familia:
     sobrenome: str
     numero_filhos: int
+    salario: float
 
 #Definido banco de dados
 nome_do_arquivo = "pesquisa_prefeitura.txt"
@@ -33,8 +34,9 @@ while True:
     match (opcao):
         case 1:
             familia = Familia(
-            sobrenome = input("Digite o sobrenome da família: "),
-            numero_filhos = int(input("Digite quantos filhos você tem: ")),
+            sobrenome = input("Insira o sobrenome da família: "),
+            numero_filhos = int(input("Insira quantos filhos você tem: ")),
+            salario = float(input("Insira a sua renda mensal: "))
             )
             os.system("cls || clear")
 
@@ -42,23 +44,27 @@ while True:
 
             quantidade_familias += 1
 
-            print("\nDados da família salvos com sucesso.")
-
             #Abrindo arquivo e certificando a escrita de dados
             with open(nome_do_arquivo, "a") as arquivo_familias:
                 for integrante in lista_familia:
-                    arquivo_familias.write(f"{familia.sobrenome}, {familia.numero_filhos}\n")
+                    arquivo_familias.write(f"{quantidade_familias}, {familia.numero_filhos}, {familia.salario}\n")
+            
+            print("\nDados da família salvos com sucesso.")
+            lista_familia = []
 
         case 2:
+            salarios.append(familia.salario)
+            
+            print(f"{salarios}")
+
             #Lendo o arquivo
             with open(nome_do_arquivo, "r") as arquivo_de_origem:
                 for linha in arquivo_de_origem:
-                    sobrenome, numero_filhos = linha.strip().split(",")
-                    lista_familia.append(Familia(sobrenome = sobrenome, numero_filhos = int(numero_filhos)))
+                    sobrenome, numero_filhos, salario = linha.strip().split(",")
+                    lista_familia.append(Familia(sobrenome = sobrenome, numero_filhos = int(numero_filhos), salario = float(salario)))
 
-            for parente in lista_familia:
-                print(f"Sobrenome da família: {sobrenome}")
-                print(f"Média de filhos das famílias: {sum(quantidade_de_filhos) / len(quantidade_de_filhos)}")
+            #Fechando conexão com o arquivo
+            arquivo_familias.close()
 
         case 3:
             break
