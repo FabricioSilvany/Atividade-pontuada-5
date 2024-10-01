@@ -13,7 +13,7 @@ e - menor salário
 Crie um menu com as seguintes opções.
 Código | Descrição
 1 || Adicionar família
-2 ||
+2 || Exibir resultados
 3 || Sair
 
 Ao adicionar uma família, deve-se limpar o terminal e apresentar o menu novamente.
