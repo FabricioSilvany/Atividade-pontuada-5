@@ -4,21 +4,25 @@ from dataclasses import dataclass
 os.system("cls || clear")
 
 
-Lista_familia = []
+lista_familia = []
 
 #Perguntas
 @dataclass
 class Familia:
-    nome: str
-    idade: int
-    salario: float
+    sobrenome: str
     numero_fiilhos: int
 
 #Solicitando dados
 familia = Familia(
-    nome = input("Digite seu nome: "),
-    idade = int(input("Digite sua idade: ")),
+    sobrenome = input("Digite o sobrenome da família: "),
     numero_fiilhos = int(input("Digite quantos filhos você tem: ")),
-    salario = float(input("Digite qual o seu salário: "))
 )
-Lista_familia.append(familia)
+lista_familia.append(familia)
+
+#Definido banco de dados
+nome_do_arquivo = "pesquisa_prefeitura.txt"
+
+#Abrindo arquivo e certificando a escrita de dados
+with open(nome_do_arquivo, "a") as arquivo_familias:
+    for familia in lista_familia:
+        arquivo_familias
