@@ -2,7 +2,7 @@ import os
 os.system("cls || clear") 
 
 quantidade_familias = 0
-
+salarios = [].+
 while True:
     opcao = input(print("""
     === PESQUISA DA PREFEITURA ===
