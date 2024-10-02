@@ -1,6 +1,14 @@
 import os
 from dataclasses import dataclass
 
+"""
+Membros da equipe: 
+Victor Andrade Costa Pinto
+Fabrício Silvany de Jesus
+
+Número da turma: G93313
+"""
+
 os.system("cls || clear") 
 
 quantidade_familias = 0
@@ -44,24 +52,28 @@ while True:
 
             quantidade_familias += 1
 
+            salarios.append(familia.salario)
+            quantidade_de_filhos.append(familia.numero_filhos)
+
             #Abrindo arquivo e certificando a escrita de dados
             with open(nome_do_arquivo, "a") as arquivo_familias:
                 for integrante in lista_familia:
                     arquivo_familias.write(f"{quantidade_familias}, {familia.numero_filhos}, {familia.salario}\n")
             
             print("\nDados da família salvos com sucesso.")
+
             lista_familia = []
 
         case 2:
-            salarios.append(familia.salario)
-            
-            print(f"{salarios}")
+            media_salarios = sum(salarios) / len(salarios)
+            media_filhos = {sum(quantidade_de_filhos)} / {len(quantidade_de_filhos)}
 
-            #Lendo o arquivo
-            with open(nome_do_arquivo, "r") as arquivo_de_origem:
-                for linha in arquivo_de_origem:
-                    sobrenome, numero_filhos, salario = linha.strip().split(",")
-                    lista_familia.append(Familia(sobrenome = sobrenome, numero_filhos = int(numero_filhos), salario = float(salario)))
+            print(f"\nQuantidade totais de famílias: {quantidade_familias}")
+            print(f"Média do número de filhos da população: {media_filhos}")
+            print(f"Média salarial da população: {media_salarios}")
+            print(f"Maior salário: {max(salarios)}")
+            print(f"Mneor salároi: {min(salarios)}")
+
 
             #Fechando conexão com o arquivo
             arquivo_familias.close()
