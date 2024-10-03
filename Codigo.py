@@ -27,6 +27,20 @@ class Familia:
 #Definido banco de dados
 nome_do_arquivo = "pesquisa_prefeitura.txt"
 
+
+#Função
+def verificar_media_salarial(salario):
+    salarios.append(familia.salario)
+    media_salarial = sum(salarios) / len(salarios)
+
+    return familia, salarios, media_salarial, salario
+
+def verificar_media_filhos(filho):
+    lista_familia.append(familia.numero_filhos)
+    media_filhos = sum(quantidade_de_filhos) / len(quantidade_de_filhos)
+
+    return familia, media_filhos, filho
+
 #Menu
 while True:
     opcao = int(input("""
@@ -44,7 +58,7 @@ while True:
             familia = Familia(
             sobrenome = input("Insira o sobrenome da família: "),
             numero_filhos = int(input("Insira quantos filhos você tem: ")),
-            salario = float(input("Insira a sua renda mensal: "))
+            salario = float(input("Insira a sua renda mensal: ")),
             )
             os.system("cls || clear")
 
@@ -58,19 +72,17 @@ while True:
             #Abrindo arquivo e certificando a escrita de dados
             with open(nome_do_arquivo, "a") as arquivo_familias:
                 for integrante in lista_familia:
-                    arquivo_familias.write(f"{quantidade_familias}, {familia.numero_filhos}, {familia.salario}\n")
+                    arquivo_familias.write(f"Sobrenome da família: {familia.sobrenome}, Quantidade de filhos: {familia.numero_filhos}, Renda mensal: {familia.salario}\n")
             
             print("\nDados da família salvos com sucesso.")
 
             lista_familia = []
 
         case 2:
-            media_salarios = sum(salarios) / len(salarios)
-            media_filhos = {sum(quantidade_de_filhos)} / {len(quantidade_de_filhos)}
 
             print(f"\nQuantidade totais de famílias: {quantidade_familias}")
             print(f"Média do número de filhos da população: {media_filhos}")
-            print(f"Média salarial da população: {media_salarios}")
+            print(f"Média salarial da população: {media_salarial}")
             print(f"Maior salário: {max(salarios)}")
             print(f"Mneor salároi: {min(salarios)}")
 
