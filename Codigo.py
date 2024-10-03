@@ -28,23 +28,10 @@ class Familia:
 nome_do_arquivo = "pesquisa_prefeitura.txt"
 
 
-#Função
-def verificar_media_salarial(salario):
-    salarios.append(familia.salario)
-    media_salarial = sum(salarios) / len(salarios)
-
-    return familia, salarios, media_salarial, salario
-
-def verificar_media_filhos(filho):
-    lista_familia.append(familia.numero_filhos)
-    media_filhos = sum(quantidade_de_filhos) / len(quantidade_de_filhos)
-
-    return familia, media_filhos, filho
-
 #Menu
 while True:
     opcao = int(input("""
-    === PESQUISA DA PREFEITURA ===
+          === PESQUISA DA PREFEITURA ===
     (Digite o número para acessar a aba desejada)
         
     1 || Adicionar família
@@ -69,29 +56,37 @@ while True:
             salarios.append(familia.salario)
             quantidade_de_filhos.append(familia.numero_filhos)
 
+            media_salarial = sum(salarios) / len(salarios)
+            media_filhos = sum(salarios) / len(salarios)
+
             #Abrindo arquivo e certificando a escrita de dados
             with open(nome_do_arquivo, "a") as arquivo_familias:
-                for integrante in lista_familia:
-                    arquivo_familias.write(f"Sobrenome da família: {familia.sobrenome}, Quantidade de filhos: {familia.numero_filhos}, Renda mensal: {familia.salario}\n")
+                for familiar in lista_familia:
+                    arquivo_familias.write(f"Total de familias que responderam a pergunta: {quantidade_familias}\n Média salarial da população: {media_salarial:.2}\n Média de filhos da população: {media_filhos:.2}\n Maior salário: {max(salarios):.2}\n Menor Salário: {min(salarios)}\n")
             
-            print("\nDados da família salvos com sucesso.")
-
+            print("Dados salvos com sucesso.")
+            
             lista_familia = []
 
         case 2:
-
-            print(f"\nQuantidade totais de famílias: {quantidade_familias}")
-            print(f"Média do número de filhos da população: {media_filhos}")
-            print(f"Média salarial da população: {media_salarial}")
-            print(f"Maior salário: {max(salarios)}")
-            print(f"Mneor salároi: {min(salarios)}")
-
-
-            #Fechando conexão com o arquivo
-            arquivo_familias.close()
+            print(f"Sobrenome da família: {familia.sobrenome}")
+            print(f"Número de filhos: {familia.numero_filhos}")
+            print(f"Renda mensal da família: {familia.salario}")
 
         case 3:
             break
 
         case _:
             print("Aba invalida ou inexistente. \nTente novamente.")
+
+print("=== Exibindo dados salvos ===")
+
+print("\n=== Acessando dados de um arquivo ===")
+with open(nome_do_arquivo, "r") as arquivo_de_origem:
+    for linha in arquivo_de_origem:
+        media_salarial, media_filhos, quantidade_familias, salarios = linha.strip().split(",")
+        lista_familia(Familia(quantidade_familias = int(quantidade_familias), media_salarial = float(media_salarial), media_filhos = float(media_filhos), salarios = max(salarios), salarios = min(salarios) ))
+
+print("\n ===Exibindo arquivos salvos=== ")
+
+print(f"Quantidade de familias que responderam: {familia.quantidade_familias}")
